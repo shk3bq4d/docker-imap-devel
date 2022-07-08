@@ -22,5 +22,5 @@ services:
     - ./dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf
     - ./dovecot/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
     - ./dovecot/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf
-    - ./dovecot/20-lmtp.conf:/etc/dovecot/conf.d/20-lmtp.conf
+#   - ./dovecot/20-lmtp.conf:/etc/dovecot/conf.d/20-lmtp.conf:rw
     - ./dovecot/auth-passwdfile.inc:/etc/dovecot/conf.d/auth-passwdfile.inc
