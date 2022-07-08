@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  imap:
+    # Uncomment this for build image in local
+    # build:
+    #   context: .
+    image: antespi/docker-imap-devel:latest
+    container_name: imap
+    ports:
+    - "25:25"
+    - "143:143"
+    - "993:993"
+    environment:
+    - MAILNAME=example.org
+    - MAIL_ADDRESS=address@example.org
+    - MAIL_PASS=pass
+    volumes:
+    - ./dovecot/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+    - ./dovecot/10-logging.conf:/etc/dovecot/conf.d/10-logging.conf
+    - ./dovecot/10-mail.conf:/etc/dovecot/conf.d/10-mail.conf
+    - ./dovecot/10-master.conf:/etc/dovecot/conf.d/10-master.conf
+    - ./dovecot/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
+    - ./dovecot/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf
+    - ./dovecot/20-lmtp.conf:/etc/dovecot/conf.d/20-lmtp.conf
+    - ./dovecot/auth-passwdfile.inc:/etc/dovecot/conf.d/auth-passwdfile.inc
